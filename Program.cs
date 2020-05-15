@@ -44,13 +44,15 @@ namespace Snake
             //Background music 
             SoundPlayer player = new SoundPlayer();
             player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Waltz-music-loop.wav";
-            player.PlayLooping();
+
 
             //add menu
             /*Menu m = new Menu();
             m.menu();*/
             menu();
             Console.Clear();
+
+            player.PlayLooping();
 
             //max - Creates an array that has four directions
             Position[] directions = new Position[]
@@ -494,13 +496,14 @@ namespace Snake
 
             void menu()
             {
+               
                 int userOption;
                 string condition = "correct";
                 do
                 {
-                    int y = Console.WindowHeight / 2;
+                    int ystart = (Console.WindowHeight - 2) / 2;
                     string text1 = "Welcome to the Snake Menu. Please choose an option below:";
-                    string text2 = "\t\t\t(1) Choose Difficulty\t(2) View Leaderboard\t(3) Help\t(4) Quit Game";
+                    string text2 = "\t\t\t(1)Play \t(2) View Leaderboard\t(3) Help\t(4) Quit Game";
 
                     int text1length = text1.Length;
                     int text2length = text2.Length;
@@ -509,8 +512,8 @@ namespace Snake
                     int text2start = (Console.WindowWidth - text2length) / 2;
 
                     //Set menu to middle of the window
-                    Console.SetCursorPosition(text1start, y+2);
-                    Console.SetCursorPosition(text2start, y+3);
+                    Console.SetCursorPosition(text1start, ystart);
+                    Console.SetCursorPosition(text2start, ystart+1);
 
                     Console.WriteLine(text1);
                     Console.WriteLine(text2);
