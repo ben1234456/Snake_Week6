@@ -349,7 +349,7 @@ namespace Snake
 
                 else if (input == "3")
                 {
-
+                    Environment.Exit(0);
                 }
             }
 
