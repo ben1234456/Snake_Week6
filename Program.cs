@@ -323,7 +323,7 @@ namespace Snake
 
                 if (input == "1")
                 {
-                    ShowLeaderBoard();
+                    ShowLeaderBoard(2);
                 }
 
                 else if (input == "2")
@@ -376,7 +376,7 @@ namespace Snake
 
                 if (input == "1")
                 {
-                    ShowLeaderBoard();
+                    ShowLeaderBoard(2);
                 }
 
                 else if (input == "2")
@@ -407,7 +407,7 @@ namespace Snake
                 while (snakeElements.Contains(food) || obstacles.Contains(food));
             }
 
-            void ShowLeaderBoard()
+            void ShowLeaderBoard(int condition)
             {
                 player.Stop();
                 Console.Clear();
@@ -481,25 +481,36 @@ namespace Snake
                     z++;
                 }
 
-                //Prompt the user to select an option after viewing leaderboard
-                string userLeadInput;
-
-                Console.Write("\n" + "Enter '1' to go back to main menu and '2' to exit the program\n");
-                userLeadInput = Console.ReadLine();
-                while (userLeadInput != "1" && userLeadInput != "2")
+                if (condition == 1)
                 {
-                    Console.WriteLine("Please enter a valid input");
+                    //Prompt the user to select an option after viewing leaderboardt;
+                    string userLeadInput;
+
+                    Console.Write("\n" + "Enter '1' to go back to main menu and '2' to exit the program\n");
                     userLeadInput = Console.ReadLine();
+                    while (userLeadInput != "1" && userLeadInput != "2")
+                    {
+                        Console.WriteLine("Please enter a valid input");
+                        userLeadInput = Console.ReadLine();
 
+                    }
+
+                    if (userLeadInput == "1")
+                    {
+                        Console.Clear();
+                        menu();
+                    }
+                    else if (userLeadInput == "2")
+                    {
+                        Environment.Exit(0);
+                    }
                 }
 
-                if (userLeadInput == "1")
+                else if (condition == 2)
                 {
-                    Console.Clear();
-                    menu();
-                }
-                else if (userLeadInput == "2")
-                {
+                    string userLeadInput;
+                    Console.Write("\n" + "Enter anything to exit the program\n");
+                    userLeadInput = Console.ReadLine();
                     Environment.Exit(0);
                 }
                 file.Close();
@@ -541,7 +552,7 @@ namespace Snake
                         case "2":
                             Console.WriteLine("You have chosen option " + userOption + " -> View Leaderboard");
                             condition = "correct";
-                            ShowLeaderBoard();
+                            ShowLeaderBoard(1);
                             break;
                         case "3":
                             Console.WriteLine("You have chosen option " + userOption + " -> View Help Page");
