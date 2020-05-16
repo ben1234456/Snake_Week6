@@ -171,8 +171,14 @@ namespace Snake
                     // add life
                     if (life != 0)
                     {
-                        negativePoints += 50;
-                        //everytime the snake consume an obstacle this function will add another new one
+                        foreach (Position obstacle in obstacles.ToList())
+                        {
+                            if (obstacle.col == snakeNewHead.col && obstacle.row == snakeNewHead.row)
+                            {
+                                obstacles.Remove(obstacle);
+                            }
+                        }
+
                         AddNewObstacle();
                     }
 
