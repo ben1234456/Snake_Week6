@@ -525,7 +525,7 @@ namespace Snake
                 {
                     int ystart = (Console.WindowHeight-2) / 2;
                     string text1 = "Welcome to the Snake Menu. Please choose an option below:";
-                    string text2 = "\t\t\t(1) Play Game\t(2) View Leaderboard\t(3) Help\t(4) Quit Game";
+                    string text2 = "\t\t\t(1) Choose Difficulty\t(2) View Leaderboard\t(3) Help\t(4) Quit Game";
 
                     int text1length = text1.Length;
                     int text2length = text2.Length;
@@ -544,7 +544,7 @@ namespace Snake
                     switch (userOption)
                     {
                         case 1:
-                            Console.WriteLine("You have chosen option " + userOption + " -> Play the game again");
+                            Console.WriteLine("You have chosen option " + userOption + " -> Choose Difficulty");
                             condition = "correct";
                             player.PlayLooping();
                             //Program prgm = new Program();
